@@ -7,9 +7,9 @@ using namespace std;
 int main()
 {
     srand(time(0));
-    const int N=100;
+    const int N = 200;
     int a[N];
-    for(int i=0;i<N;i++) 
+    for(int i = 0; i<N; i++) 
     {
         a[i]=rand()%100;
         cout<<a[i]<<" ";
@@ -19,5 +19,6 @@ int main()
     for(int i=0;i<N;i++) cout<<a[i]<<" ";
     cout<<endl;
     getchar();
+    
     return 0;
 }
