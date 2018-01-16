@@ -1,24 +1,42 @@
-#include<iostream>
-#include<algorithm>
-#include<ctime>
- 
+#include <iostream>
+
 using namespace std;
- 
+
+void swap(int& x, int& y)
+{
+	int temp = x;
+	x = y;
+	y = temp;
+}
+
 int main()
 {
-    srand(time(0));
-    const int N = 200;
-    int a[N];
-    for(int i = 0; i<N; i++) 
-    {
-        a[i]=rand()%100;
-        cout<<a[i]<<" ";
-    }
-    cout<<endl<<"=================="<<endl;
-    sort(&a[0],&a[N]);//сортировка
-    for(int i=0;i<N;i++) cout<<a[i]<<" ";
-    cout<<endl;
-    getchar();
-    
-    return 0;
+	const int ARRAY_LENGTH = 5;
+	
+	int array[ARRAY_LENGTH] = {7, 6, 5, 4, 10};
+	
+	for (int i = 0; i < ARRAY_LENGTH; i++)
+	{
+		cout << array[i] << " ";
+	}
+	cout << endl;
+	
+	// сортировка
+	for (int j = 0; j < ARRAY_LENGTH - 1; j++)
+	{
+		for (int i = 0; i < ARRAY_LENGTH - 1 - j; i++)
+		{
+			if (array[i] > array[i + 1])
+			{
+				swap(array[i], array[i + 1]);
+			}
+		}
+	}
+	
+	// вывод в консоль
+	for (int i = 0; i < ARRAY_LENGTH; i++)
+	{
+		cout << array[i] << " ";
+	}
+	
 }
