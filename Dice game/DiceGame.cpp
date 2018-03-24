@@ -1,7 +1,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
-int main()
+
+void printIntroduction()
 {
 	std::cout << "Available game modes:" << std::endl;
 	std::cout << "1 - Play with PC" << std::endl;
@@ -9,22 +10,36 @@ int main()
 	std::cout << "3 - Play alone" << std::endl;
 	std::cout << "Player1 score is: 1000" << std::endl;
 	std::cout << "Player2 score is: 1000" << std::endl;
+}
+
+int setGameMode()
+{
 	std::cout << "Enter game mode: ";
 	int gameMode;
 	std::cin >> gameMode;
+	return gameMode;
+}
+
+int setNumberOfSteps()
+{
 	std::cout << "Enter number of steps: ";
 	int numberOfSteps;
-	int stepsCounter = 1;
 	std::cin >> numberOfSteps;
+	return numberOfSteps;
+}
+
+int setBetSize()
+{
 	std::cout << "Enter bet size: ";
 	int betSize;
 	std::cin >> betSize;
+	return betSize;
+}
 
-	int player1Score = 1000;
-	int player2Score = 1000;
-
+void playGame(int gameMode, int numberOfSteps, int betSize, int player1Score, int player2Score)
+{
 	int randomize();
-
+	int stepsCounter = 1;
 	while (true)
 	{
 		int computerNumber = rand() % 12 + 1; //рандомное число
@@ -141,4 +156,12 @@ int main()
 			}
 		}
 	}
+}
+int main()
+{
+	printIntroduction();
+	int gameMode = setGameMode();
+	int numberOfSteps = setNumberOfSteps();
+	int betSize = setBetSize();
+	playGame(gameMode, numberOfSteps, betSize, 1000, 1000);
 }
